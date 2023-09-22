@@ -31,7 +31,7 @@ This document presents the basic information of the **API - Contacts Lits**. For
 ### Via Local 
 1. Clone the api repository:
     ```shell
-    git clone https://github.com/chicosilva/bravi.git
+    git clone https://github.com/chicosilva/desafio-maistodos.git
     ```
 
 2. Install Poetry:
