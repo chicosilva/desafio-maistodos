@@ -1,0 +1,29 @@
+# Top-most EditorConfig file
+root = true
+
+# Definir a codificação de caracteres
+[*]
+charset = utf-8
+
+# Estilo de fim de linha
+[*]
+end_of_line = lf
+
+# Estilo de indentação e tamanho de tabulação
+[*.{py,pyw}]
+indent_style = space
+indent_size = 4
+
+# Regras do PEP 8 para espaços em branco
+[*.{py,pyw}]
+max_line_length = 79
+ignore = E203, W503
+
+# Ignorar espaços em branco antes de ':' e sinal de '='
+[*.{py,pyw}]
+exclude = *_pb2.py, *_pb2_grpc.py
+
+# Ignorar arquivos gerados automaticamente
+[*.pb2.py, *.pb2_grpc.py]
+indent_style = space
+indent_size = 4
