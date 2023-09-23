@@ -19,7 +19,7 @@ depends_on = None
 def upgrade() -> None:
     op.create_table(
         "cards",
-        sa.Column("id", sa.BigInteger(), nullable=False),
+        sa.Column("id", sa.Uuid(), nullable=False),
         sa.Column(
             "created_at",
             sa.DateTime(timezone=True),

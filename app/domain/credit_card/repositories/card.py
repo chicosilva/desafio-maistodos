@@ -17,8 +17,8 @@ class CreditCardRepository(RepositoryBase):
     async def get_card_by_id(self, id: int) -> CreditCard:
         return self.query().filter_by(id=id).one()
 
-    async def save_card(self, person: CreditCard) -> CreditCard:
+    async def save_card(self, card: CreditCard) -> CreditCard:
         try:
-            return await self.save(person)
+            return await self.save(card)
         except Exception as e:
             raise DatabaseError(e)

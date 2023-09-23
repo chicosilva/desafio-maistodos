@@ -2,9 +2,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
 
-from app.internal.config import (PROJECT_CONTACT_API, PROJECT_DESCRIPTION_API,
-                                 PROJECT_NAME_API, PROJECT_VERSION_API)
-from app.routers import credit_card, healthcheck, welcome
+from app.internal.config import (
+    PROJECT_CONTACT_API,
+    PROJECT_DESCRIPTION_API,
+    PROJECT_NAME_API,
+    PROJECT_VERSION_API,
+)
+from app.routers import credit_card, healthcheck, user, welcome
 
 __version__ = PROJECT_VERSION_API
 
@@ -30,8 +34,9 @@ def create_app() -> FastAPI:
         middleware=middleware,
     )
 
-    app.include_router(router=welcome)
-    app.include_router(credit_card.router, prefix="/credit-card", tags=["Cards"])
-    app.include_router(router=healthcheck.router, tags=["Health"])
+    app.include_router(credit_card.router, prefix="/api/v1")
 
+    app.include_router(router=healthcheck.router, tags=["Health"])
+    app.include_router(user.router, prefix="/user", tags=["Users"])
+    app.include_router(router=welcome)
     return app

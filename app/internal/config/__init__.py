@@ -21,6 +21,7 @@ __all__ = [
     "BASIC_HEADERS",
     "Logger",
     "PROJECT_NAME_API",
+    "JWT_SECRET",
 ]
 
 from app.internal.config.logger import Logger
@@ -33,7 +34,8 @@ from app.internal.config.settings import (BASE_PATH, BASIC_HEADERS,
                                           GUNICORN_KEEPALIVE, GUNICORN_TIMEOUT,
                                           GUNICORN_WORKER_CLASS,
                                           GUNICORN_WORKERS,
-                                          GUNICORN_WORKERS_PER_CORE, MODE,
+                                          GUNICORN_WORKERS_PER_CORE,
+                                          JWT_SECRET, MODE,
                                           PROJECT_CONTACT_API,
                                           PROJECT_DESCRIPTION_API,
                                           PROJECT_NAME_API,

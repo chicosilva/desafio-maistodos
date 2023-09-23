@@ -4,6 +4,7 @@ from typing import Optional
 
 from creditcard import CreditCard
 from pydantic import BaseModel, Field, field_validator
+import uuid
 
 
 class CardCreateSchema(BaseModel):
@@ -11,7 +12,6 @@ class CardCreateSchema(BaseModel):
     holder: str = Field(min_length=2)
     number: str
     cvv: Optional[str] = Field(min_length=3, max_length=4, default=None)
-    brand: str = None
 
     @field_validator("exp_date")
     @classmethod
@@ -53,6 +53,16 @@ class CardCreateSchema(BaseModel):
 
 
 class CardCreateResponseSchema(BaseModel):
+    id: uuid.UUID
+    exp_date: date
+    holder: str
+    number: str
+    cvv: int
+    brand: str
+
+
+class CardDetailResponseSchema(BaseModel):
+    id: uuid.UUID
     exp_date: date
     holder: str
     number: str
