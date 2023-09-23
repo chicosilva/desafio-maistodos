@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import APIRouter, Depends, status
 
 from app.dependencies import get_repository
@@ -6,7 +7,7 @@ from app.domain.credit_card.repositories.card import CreditCardRepository
 from app.domain.credit_card.schemas import (
     CardCreateResponseSchema,
     CardCreateSchema,
-    CardDetailResponseSchema,
+    CardResponseSchema,
 )
 from app.domain.credit_card.service import CardService
 import uuid
@@ -22,6 +23,7 @@ router = APIRouter(
     dependencies=[Depends(JWTBearer())],
     summary="List Cards",
     status_code=status.HTTP_200_OK,
+    response_model=List[CardResponseSchema],
 )
 async def get_cards(
     repository: CreditCardRepository = Depends(
@@ -29,7 +31,7 @@ async def get_cards(
     ),
 ):
     cards = await CardService(repository=repository).get_all()
-    return cards
+    return [CardResponseSchema(**card.__dict__).dict() for card in cards]
 
 
 @router.post(
@@ -55,7 +57,7 @@ async def add(
     dependencies=[Depends(JWTBearer())],
     summary="Card Detail",
     status_code=status.HTTP_200_OK,
-    response_model=CardDetailResponseSchema,
+    response_model=CardResponseSchema,
 )
 async def get_card(
     id: uuid.UUID,
@@ -64,4 +66,4 @@ async def get_card(
     ),
 ):
     card = await CardService(repository=repository).get_card_by_id(id=id)
-    return CardDetailResponseSchema(**card.__dict__)
+    return CardResponseSchema(**card.__dict__)

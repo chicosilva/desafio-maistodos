@@ -59,12 +59,14 @@ class CardCreateResponseSchema(BaseModel):
     number: str
     cvv: int
     brand: str
+    created_at: datetime
 
 
-class CardDetailResponseSchema(BaseModel):
+class CardResponseSchema(BaseModel):
     id: uuid.UUID
     exp_date: date
     holder: str
     number: str
     cvv: int
     brand: str
+    created_at: datetime

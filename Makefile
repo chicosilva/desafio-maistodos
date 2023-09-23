@@ -64,6 +64,6 @@ test-report:
 
 # Migrations
 migrations:
-	alembic upgrade heads
+	@poetry run alembic upgrade heads
 
 

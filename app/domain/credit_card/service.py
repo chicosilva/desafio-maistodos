@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import List
 
 from creditcard import CreditCard as CreditCardValidator
 
@@ -13,7 +14,7 @@ import uuid
 class CardService(ServiceBase):
     repository: CreditCardRepository
 
-    async def get_all(self) -> CreditCard:
+    async def get_all(self) -> List[CreditCard]:
         return await self.repository.get_all()
 
     async def get_card_by_id(self, id: uuid.UUID) -> CreditCard:
