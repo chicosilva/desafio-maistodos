@@ -27,7 +27,7 @@ BASIC_HEADERS = {"Content-Type": "application/json"}
 
 # PostgreSQL Database
 DATABASE_PORT = config("DATABASE_PORT", cast=int, default=5432)
-DATABASE_HOST = config("DATABASE_HOST", cast=str, default="localhost")
+DATABASE_HOST = config("DATABASE_HOST", cast=str, default="db")
 DATABASE_NAME = config("DATABASE_NAME", cast=str, default="todos_dev")
 DATABASE_USER = config("DATABASE_USER", cast=str, default="todos_dev")
 DATABASE_PASS = config("DATABASE_PASS", cast=str, default="todos_dev")

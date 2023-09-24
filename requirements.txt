@@ -33,7 +33,7 @@ pydantic_core==2.6.3
 PyJWT==2.6.0
 pylint==2.17.5
 pyodbc==4.0.39
-python-creditcard==0.0.1
+git+https://git@github.com/MaisTodos/python-creditcard.git@main
 python-dotenv==1.0.0
 python-multipart==0.0.6
 PyYAML==6.0.1
@@ -56,3 +56,4 @@ validate-docbr==1.10.0
 watchfiles==0.20.0
 websockets==11.0.3
 wrapt==1.15.0
+email-validator==2.0.0.post2

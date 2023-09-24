@@ -2,12 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
 
-from app.internal.config import (
-    PROJECT_CONTACT_API,
-    PROJECT_DESCRIPTION_API,
-    PROJECT_NAME_API,
-    PROJECT_VERSION_API,
-)
+from app.internal.config import (PROJECT_CONTACT_API, PROJECT_DESCRIPTION_API,
+                                 PROJECT_NAME_API, PROJECT_VERSION_API)
 from app.routers import credit_card, healthcheck, user, welcome
 
 __version__ = PROJECT_VERSION_API

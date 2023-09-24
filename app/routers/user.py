@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Body
+
 from app.domain.auth.auth_handler import signJWT
 from app.domain.auth.schema import UserLoginSchema
 

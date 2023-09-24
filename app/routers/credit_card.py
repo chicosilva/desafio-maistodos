@@ -1,16 +1,15 @@
+import uuid
 from typing import List
+
 from fastapi import APIRouter, Depends, status
 
 from app.dependencies import get_repository
 from app.domain.auth.auth_bearer import JWTBearer
 from app.domain.credit_card.repositories.card import CreditCardRepository
-from app.domain.credit_card.schemas import (
-    CardCreateResponseSchema,
-    CardCreateSchema,
-    CardResponseSchema,
-)
+from app.domain.credit_card.schemas import (CardCreateResponseSchema,
+                                            CardCreateSchema,
+                                            CardResponseSchema)
 from app.domain.credit_card.service import CardService
-import uuid
 
 router = APIRouter(
     prefix="/credit-card",

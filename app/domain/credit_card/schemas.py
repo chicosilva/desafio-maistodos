@@ -1,10 +1,10 @@
 import calendar
+import uuid
 from datetime import date, datetime
 from typing import Optional
 
 from creditcard import CreditCard
 from pydantic import BaseModel, Field, field_validator
-import uuid
 
 
 class CardCreateSchema(BaseModel):

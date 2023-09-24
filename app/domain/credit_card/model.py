@@ -1,7 +1,8 @@
+import uuid
+
 from sqlalchemy import Column, Date, Numeric, String
 
 from app.domain.common.entity_model_base import EntityModelBase
-import uuid
 
 
 def generate_uuid():

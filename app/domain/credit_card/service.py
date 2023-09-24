@@ -1,3 +1,4 @@
+import uuid
 from dataclasses import dataclass
 from typing import List
 
@@ -7,7 +8,6 @@ from app.domain.common.service_base import ServiceBase
 from app.domain.credit_card.model import CreditCard
 from app.domain.credit_card.repositories.card import CreditCardRepository
 from app.domain.credit_card.schemas import CardCreateSchema
-import uuid
 
 
 @dataclass
