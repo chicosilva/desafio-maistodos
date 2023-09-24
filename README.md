@@ -44,6 +44,7 @@ This document presents the basic information of the **API - Mais Todos CardCredi
    > **_NOTE:_** active the virtualenv: source .venv/bin/activate  
     ```shell
     pip install -r requirements.txt
+    pip install -r requirements-dev.txt
     ```
 
 
@@ -67,14 +68,10 @@ This document presents the basic information of the **API - Mais Todos CardCredi
      ```
 
 6. For running unit tests locally:
-   > **_NOTE:_** use the variable "TESTING=True" to run unit and integration tests.
+   > **_NOTE:_** run make localdb and use the variable "TESTING=True" and "DATABASE_HOST=localhost" to run unit and integration tests.
    - Console coverage report:
      ```shell
-     pytest --cov
-     ```
-   - Coverage report to html:
-     ```shell
-     pytest --cov-report html --cov
+     make test
      ```
 
 ### Via docker-compose
