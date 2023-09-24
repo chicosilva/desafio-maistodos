@@ -1,7 +1,7 @@
 
-# API documentation - **Contact List**
+# API documentation - ** Mais Todos CardCredit **
 
-This document presents the basic information of the **API - Contacts Lits**. For more information, contact the developers at [Contacts](#4-Contacts).
+This document presents the basic information of the **API - Mais Todos CardCredit **. For more information, contact the developers at [Cards](#4-Cards).
 
 # Version control
 
@@ -17,7 +17,7 @@ This document presents the basic information of the **API - Contacts Lits**. For
 
 3. [Environment Preparation](#3-Environment-Preparation)
 
-4. [Contacts](#4-Contacts)
+4. [Cards](#4-Cards)
 
 # 1. Product Overview 
 
@@ -31,25 +31,21 @@ This document presents the basic information of the **API - Contacts Lits**. For
 ### Via Local 
 1. Clone the api repository:
     ```shell
-    git clone https://github.com/chicosilva/desafio-maistodos.git
+    git clone git@github.com:chicosilva/desafio-maistodos.git
     ```
 
-2. Install Poetry:
-    > **_NOTE:_** Install Poetry (tool for dependency management and packaging)
+2. Create Virtual Env:
+    > **_NOTE:_** Install Pip (tool for dependency management and packaging)
     ```shell
-    curl -sSL https://install.python-poetry.org | python3 -
+    python3 -m venv .venv
     ```
-    > **_NOTE:_** Poetry basic usage - https://python-poetry.org/docs/basic-usage/
 
 3. install the dependencies:
-   > **_NOTE:_** poetry install -> create and activate the venv.
+   > **_NOTE:_** active the virtualenv: source .venv/bin/activate  
     ```shell
-    poetry install
+    pip install -r requirements.txt
     ```
-    Or
-    ```shell
-    make install
-    ```
+
 
 4. Configure environment variables:
     > **_NOTE:_** A local PostgreSQL database will be required, see the **.env-sample** file.
@@ -66,10 +62,6 @@ This document presents the basic information of the **API - Contacts Lits**. For
      ``` make migrations ```
 
    - run the application
-     ```shell
-     poetry run uvicorn app.main:application --port 8000 --workers 3 --reload
-     ```
-     Or
      ```shell
      make run
      ```
@@ -108,13 +100,11 @@ about GitHub Packages.
    docker-compose up --build
    ```
 
-   > **_NOTE:_** All dependencies on `pyproject.toml` will be installed in the build process.
-
    ### Exposed ports on the host system:
    
    | container             | port |
    |-----------------------|------|
-   | todos_dev | 8000 |
+   | maistodos-app | 8000 |
 
 # 4 Contacts
 
