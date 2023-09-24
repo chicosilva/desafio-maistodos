@@ -16,6 +16,9 @@ router = APIRouter(
     tags=["credit-card"],
 )
 
+'''
+JWTBearer is only considering authentication, in addition it could work with authorization as well
+'''
 
 @router.get(
     "/",

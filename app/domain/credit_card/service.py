@@ -21,6 +21,13 @@ class CardService(ServiceBase):
         return await self.repository.get_card_by_id(id=id)
 
     async def create_card(self, schema: CardCreateSchema) -> CreditCard:
+        
+        '''
+        The best way to store the number (schema.numbe) field is to tokenize it or create a hash, 
+        for example, but for testing purposes I left it as full text, 
+        remembering that full text is not a good security practice
+        '''
+        
         card = CreditCard(
             exp_date=schema.exp_date,
             holder=schema.holder,
