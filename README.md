@@ -79,23 +79,15 @@ This document presents the basic information of the **API - Mais Todos CardCredi
 
 ### Via docker-compose
 
-1. Before uploading the environment with Docker, it is necessary to authenticate in GitHub Packages. Create a token by accessing
-at [your GitHub profile settings](https://github.com/settings/profile) > Developer Settings >
-Personal Access Tokens. To find out what permissions are required for the token, read the
-[documentation](https://docs.github.com/en/packages/publishing-and-managing-packages/about-github-packages#about-tokens)
-about GitHub Packages.
-
-2. After creating the token, it is now possible to authenticate with GitHub Packages:
-   ```
-   echo "<personal_token>" | docker login ghcr.io -u <github_username> --password-stdin
-   ```
+1. Requirements
+   
    ### Minimum requirements   
    | requirement                                                   | release  |
    |---------------------------------------------------------------|----------|
    | [docker](https://docs.docker.com/get-docker/)                 | 19.03.0+ |
    | [docker-compose](https://github.com/docker/compose/releases/) | 1.26.0+  |
 
-3. Copy the file [.env-sample](.env-sample) to a new file `.env` and set the required values in the environment variables. Then run the containers build:
+2. Copy the file [.env-sample](.env-sample) to a new file `.env` and set the required values in the environment variables. Then run the containers build:
    ```shell
    docker-compose up --build
    ```
