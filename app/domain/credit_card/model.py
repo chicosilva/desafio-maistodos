@@ -10,9 +10,9 @@ def generate_uuid():
 
 
 class CreditCard(EntityModelBase):
-    __tablename__ = "cards"
+    __tablename__ = 'cards'
 
-    id = Column(String, name="id", primary_key=True, default=generate_uuid)
+    id = Column(String, name='id', primary_key=True, default=generate_uuid)
     exp_date = Column(Date(), nullable=False)
     holder = Column(String(150), nullable=False)
     number = Column(String(255), nullable=False)

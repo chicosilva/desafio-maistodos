@@ -13,7 +13,7 @@ class CardCreateSchema(BaseModel):
     number: str
     cvv: Optional[str] = Field(min_length=3, max_length=4, default=None)
 
-    @field_validator("exp_date")
+    @field_validator('exp_date')
     @classmethod
     def exp_date_format(cls, value: str) -> str:
         _due_date = datetime.strptime(value, "%m/%Y").date()
@@ -24,14 +24,14 @@ class CardCreateSchema(BaseModel):
         last_day = cls.last_day_of_month(year=_due_date.year, month=_due_date.month)
         _due_date = f"{last_day}/{value}"
 
-        return datetime.strptime(_due_date, "%d/%m/%Y").date()
+        return datetime.strptime(_due_date, '%d/%m/%Y').date()
 
     @classmethod
     def last_day_of_month(cls, year: int, month: int) -> int:
         _, last_day = calendar.monthrange(year, month)
         return last_day
 
-    @field_validator("cvv")
+    @field_validator('cvv')
     @classmethod
     def cvv_validate(cls, value: str) -> str:
         if value and not value.isnumeric():
@@ -39,7 +39,7 @@ class CardCreateSchema(BaseModel):
 
         return int(value)
 
-    @field_validator("number")
+    @field_validator('number')
     @classmethod
     def number_validate(cls, value: str) -> str:
         # Todo: implement hash to write card
@@ -47,7 +47,7 @@ class CardCreateSchema(BaseModel):
         cc = CreditCard(card_number)
 
         if not cc.is_valid():
-            raise ValueError("Invalid card number")
+            raise ValueError('Invalid card number')
 
         return value
 

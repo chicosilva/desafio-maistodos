@@ -57,13 +57,13 @@ docker-run:
 
 # Tests Commands
 test:
-	@poetry run pytest --cov
+	pytest tests/ --cov
 
 test-report:
 	@poetry run pytest --cov-report html --cov
 
 # Migrations
 migrations:
-	@poetry run alembic upgrade heads
+	alembic upgrade heads
 
 

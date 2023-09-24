@@ -7,7 +7,7 @@ from app.internal.config import DATABASE_SCHEMA
 
 class EntityModelBase(Base):
     __abstract__ = True
-    __table_args__ = {"schema": DATABASE_SCHEMA}
+    __table_args__ = {'schema': DATABASE_SCHEMA}
 
     id = Column(BigInteger, primary_key=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())

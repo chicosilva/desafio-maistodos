@@ -1,18 +1,19 @@
 import pytest
+from app import domain
 from loguru import logger
 
-from app import domain
+
 from app.database import engine
 from app.dependencies import get_session_db
 from app.internal.config import DATABASE_URL
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope='session')
 def metadata_create_all():
     meta_data = [
         domain.credit_card.model.EntityModelBase,
     ]
-    if "_test" in DATABASE_URL:
+    if '_test' in DATABASE_URL:
         [m.metadata.create_all(bind=engine, checkfirst=True) for m in meta_data]
 
 
@@ -28,3 +29,14 @@ def cap_logger(caplog):
     yield caplog
 
     logger.remove(handler_id)
+
+
+@pytest.fixture
+@pytest.mark.usefixtures('cap_logger')
+def token(client):
+    response = client.post(
+        '/users/login',
+        json={'email': 'test@teste.com', 'password': '123123'},
+    )
+
+    return response.json()['access_token']

@@ -33,6 +33,6 @@ def create_app() -> FastAPI:
     app.include_router(credit_card.router, prefix="/api/v1")
 
     app.include_router(router=healthcheck.router, tags=["Health"])
-    app.include_router(user.router, prefix="/user", tags=["Users"])
+    app.include_router(user.router, prefix="/users", tags=["Users"])
     app.include_router(router=welcome)
     return app

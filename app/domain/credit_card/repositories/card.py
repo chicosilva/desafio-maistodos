@@ -11,7 +11,7 @@ class CreditCardRepository(RepositoryBase):
         super().__init__(session)
         self.entity_model = CreditCard
 
-    async def get_all_contacts(self) -> List[CreditCard]:
+    async def get_all_cards(self) -> List[CreditCard]:
         return self.query().all()
 
     async def get_card_by_id(self, id: int) -> CreditCard:

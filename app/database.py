@@ -10,8 +10,8 @@ from app.internal.config import DATABASE_URL, TESTING
 if TESTING:
     if database_exists(DATABASE_URL):
         drop_database(DATABASE_URL)
-
-    create_database(DATABASE_URL)
+    engine = sqlalchemy.create_engine(DATABASE_URL, pool_pre_ping=True)
+    create_database(engine.url)
 
 
 # Postgres Database Configuration
