@@ -20,6 +20,7 @@ router = APIRouter(
 JWTBearer is only considering authentication, in addition it could work with authorization as well
 '''
 
+
 @router.get(
     "/",
     dependencies=[Depends(JWTBearer())],
@@ -67,5 +68,5 @@ async def get_card(
         get_repository(repo_type=CreditCardRepository),
     ),
 ):
-    card = await CardService(repository=repository).get_card_by_id(id=id)
+    card = await CardService(repository=repository).get_card_by_id(id=str(id))
     return CardResponseSchema(**card.__dict__)

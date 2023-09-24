@@ -3,7 +3,6 @@ from datetime import date
 from app.domain.credit_card.model import CreditCard
 
 
-@pytest.mark.asyncio
 @pytest.mark.usefixtures("cap_logger")
 @pytest.mark.usefixtures("session_db")
 def test_model_with_success(cap_logger, session_db):
@@ -29,7 +28,6 @@ def test_model_with_success(cap_logger, session_db):
     assert queried_card.brand == "Visa"
 
 
-@pytest.mark.asyncio
 @pytest.mark.usefixtures("cap_logger")
 @pytest.mark.usefixtures("session_db")
 def test_invalid_credit_card(session_db):

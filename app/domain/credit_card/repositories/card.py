@@ -4,6 +4,7 @@ from sqlalchemy.exc import DatabaseError
 
 from app.domain.common.repository_base import RepositoryBase
 from app.domain.credit_card.model import CreditCard
+import uuid
 
 
 class CreditCardRepository(RepositoryBase):
@@ -11,10 +12,7 @@ class CreditCardRepository(RepositoryBase):
         super().__init__(session)
         self.entity_model = CreditCard
 
-    async def get_all_cards(self) -> List[CreditCard]:
-        return self.query().all()
-
-    async def get_card_by_id(self, id: int) -> CreditCard:
+    async def get_card_by_id(self, id: uuid.UUID) -> CreditCard:
         return self.query().filter_by(id=id).one()
 
     async def save_card(self, card: CreditCard) -> CreditCard:
