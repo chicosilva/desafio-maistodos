@@ -5,7 +5,6 @@ from fastapi.testclient import TestClient
 from app.domain.credit_card.model import CreditCard
 from sqlalchemy import cast, String
 from app.main import application
-import uuid
 
 
 @pytest.fixture
@@ -77,14 +76,14 @@ def card(session_db):
     )
     session_db.add(card)
     session_db.commit()
-    card = session_db.query(CreditCard).filter(
+    entity = session_db.query(CreditCard).filter(
         cast(CreditCard.id, String) == f'{card.id}'
     ).first()
 
-    return card
+    return entity
 
 
-def test_patch_todo(client, card, token):
+def test_get_card_error(client, card, token):
 
     response = client.get(
         f'/api/v1/credit-card/{card.id}',

@@ -1,7 +1,7 @@
 import uuid
 from typing import List
 
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, HTTPException, status
 
 from app.dependencies import get_repository
 from app.domain.auth.auth_bearer import JWTBearer
@@ -69,4 +69,8 @@ async def get_card(
     ),
 ):
     card = await CardService(repository=repository).get_card_by_id(id=str(id))
+    if card is None:
+        raise HTTPException(
+            status_code=404, detail='Card not found'
+        )
     return CardResponseSchema(**card.__dict__)
